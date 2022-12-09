@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-12-08T20:23:49.228Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="4g7Lw266bZsA8b1yIJ1o" version="20.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-09T23:23:31.528Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="jjlVZWcZp8kGxXVAyl02" version="20.5.3" type="github">
   <diagram id="s4nw9thNw9h5mvvjcwDq" name="Page-1">
     <mxGraphModel dx="1189" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -81,6 +81,9 @@
         </mxCell>
         <mxCell id="DE9zy7Kcf4jHZsRejtrs-28" value="+[getters and setters for all vars]&lt;br&gt;+RegisterObserver(Observer)&lt;br&gt;+removeObserver(Observer)&lt;br&gt;+notifyObserver()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="920" y="380" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DE9zy7Kcf4jHZsRejtrs-29" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="610" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
