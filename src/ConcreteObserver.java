@@ -2,6 +2,8 @@ import java.sql.SQLOutput;
 
 public class ConcreteObserver extends Observer{
 
+    // Observer pattern
+
     ConcreteObserver() {
         super();
 

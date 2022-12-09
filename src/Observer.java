@@ -1,5 +1,8 @@
 public class Observer{
     Player playa;
+
+    // Observer pattern
+
     Observer(){
 
     }

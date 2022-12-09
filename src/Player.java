@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Player {
+public class Player { // Also includes observer pattern
     protected int score;
     protected String name;
     ArrayList<Observer> observerList;
@@ -8,6 +8,7 @@ public class Player {
     Player(String myname){
         score = 0;
         name = myname;
+        this.observerList = new ArrayList<>();
     }
 
     int getScore() {
@@ -15,7 +16,7 @@ public class Player {
     }
     void setScore(int myScore) {
         score = myScore;
-        //notify();
+        notifyObserver();
     }
 
     String getName(){
@@ -39,7 +40,7 @@ public class Player {
         observerList.remove(index);
     }
     void notifyObserver(){
-        for(int i = 0; i <= observerList.size(); i++){
+        for(int i = 0; i < observerList.size(); i++){
             observerList.get(i).Update();
         }
     }

@@ -83,8 +83,6 @@ public class GameEngine {
     //GAME STARTS
     void playGame(){
 
-        //ConcreteObserver obs = new ConcreteObserver(); //MAKE OBSERVER
-
         //DISPLAY START CARD
         StartCard sc = StartCard.getInstance();
         sc.displayContent();
@@ -99,14 +97,17 @@ public class GameEngine {
         //TAKE IN ALL PLAYER NAMES AND MAKE PLAYERS
         System.out.println("ENTER ALL PLAYERS NAMES, ONE ON EACH LINE: ");
         String names;
+
+        // Create observer for points
+        Observer pointsObs = new ConcreteObserver();
+
         for(int i = 0; i<numOfPlayers; i++){
             String tempName = myObj.nextLine();
             //make player with name and zero points
             Player myPlayer = new Player(tempName);
-            //myPlayer.registerObserver(obs);
+            myPlayer.registerObserver(pointsObs);
             players.add(myPlayer);
         }
-
         //GENERATE ALL CARDS
         MakeCards(players);
 
@@ -114,20 +115,32 @@ public class GameEngine {
         for(int index = 0; index<allCards.size(); index++){
             //DISPLAY CARD INDEX WE ARE ON
             allCards.get(index).DisplayContent();
-            //ASK USER TO INPUT NAME OF PLAYER WHO GETS POINTS, OR NONE
-            System.out.println("INPUT NAME OF PLAYER WHO HAS RECIEVED A PENALTY, OTHERWISE ENTER 'NONE'");
-            String givePointTo = myObj.nextLine();
-            //IF INPUT WAS NOT NONE, ADD POINT TO PLAYER AND UPDATE OBSERVER
-            if(givePointTo == "NONE") {
-                System.out.println(" ");
-            }else{
-                    for(int i = 0; i<players.size(); i++){
-                        if(players.get(i).getName().equals(givePointTo)){
-                            players.get(i).setScore(players.get(i).getScore()+1);
+            System.out.println("How many players took penalties?");
+            int numPenalties = myObj.nextInt();
+            myObj.nextLine();
+
+            for(int i = 0; i < numPenalties; i++){
+                //ASK USER TO INPUT NAME OF PLAYER WHO GETS POINTS, OR NONE
+                System.out.println("INPUT NAME OF PLAYER WHO HAS RECIEVED A PENALTY, OTHERWISE ENTER 'NONE'");
+                String givePointTo = myObj.nextLine();
+                //
+                //IF INPUT WAS NOT NONE, ADD POINT TO PLAYER AND UPDATE OBSERVER
+                if(givePointTo == "NONE") {
+                    System.out.println(" ");
+                }else{
+                    for(int j = 0; j<players.size(); j++){
+                        if(players.get(j).getName().equals(givePointTo)){
+                            players.get(j).setScore(players.get(j).getScore()+1);
                         }
                     }
                 }
             }
+        }
+
+        // Remove observers
+        for(int i = 0; i<numOfPlayers; i++){
+            players.get(i).removeObserver(pointsObs);
+        }
 
         //MAKE END CARD AND DISPLAY
         EndCard ec = EndCard.getInstance(players);
