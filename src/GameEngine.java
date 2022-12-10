@@ -137,10 +137,6 @@ public class GameEngine {
             }
         }
 
-        // Remove observers
-        for(int i = 0; i<numOfPlayers; i++){
-            players.get(i).removeObserver(pointsObs);
-        }
 
         //MAKE END CARD AND DISPLAY
         EndCard ec = EndCard.getInstance(players);
